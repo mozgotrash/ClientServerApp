@@ -1,28 +1,27 @@
+package clientserverapp.json;
+
 import java.lang.String;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class ObjectAnalyzer {
 
-    public  HashMap<String, String> analyzeFields(Object obj){
+    public  HashMap<String, Type> analyzeFields(Object obj){
 
-        HashMap<String, String> data = new HashMap<>();
+        HashMap<String, Type> data = new HashMap<>();
         Class clazz = obj.getClass();
         Field[] fields = clazz.getDeclaredFields();
+        TypeDetector td = new TypeDetector();
 
         for(Field field : fields){
-            TypeDetector td = new TypeDetector();
-            data.put(td.detectType(field), field.getName());
-
+            data.put(field.getName(), td.detectType(field));
         }
         System.out.println(data);
         return data;
     }
 }
+
 
 
 
