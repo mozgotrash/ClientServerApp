@@ -61,7 +61,11 @@ public class MapCommandRegister implements CommandRegister {
 		Command command = null;
 		
 		try {
+<<<<<<< HEAD
 			Constructor<? extends Command> ctor = clazz.getConstructor(); clazz.getFields();
+=======
+			Constructor<? extends Command> ctor = clazz.getConstructor(); clazz.getFields()
+>>>>>>> parent of c13c834... massage
 			command = ctor.newInstance();
 			
 		} catch (Exception e) {
